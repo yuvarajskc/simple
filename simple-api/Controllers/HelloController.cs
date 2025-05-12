@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using Serilog;
 
 namespace SimpleApi.Controllers;
 
@@ -7,5 +8,9 @@ namespace SimpleApi.Controllers;
 public class HelloController : ControllerBase
 {
     [HttpGet]
-    public IActionResult Get() => Ok(new { message = "Hello from API" });
+    public IActionResult Get()
+    {
+        Log.Information("HelloController.Get endpoint was called.");
+        return Ok(new { message = "Hello from API" });
+    }
 }
