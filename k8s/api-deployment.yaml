@@ -22,6 +22,11 @@ spec:
         env:
         - name: ASPNETCORE_ENVIRONMENT
           value: "Production"
+        - name: CorsOrigins__AllowedOrigins
+          valueFrom:
+            secretKeyRef:
+              name: allowed-origins
+              key: CorsOrigins__AllowedOrigins
 ---
 apiVersion: v1
 kind: Service

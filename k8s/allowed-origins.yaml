@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: allowed-origins
+type: Opaque
+stringData:
+  CorsOrigins__AllowedOrigins: "https://opulent-waffle-7pvprprj7rjhxqvj-4200.app.github.dev"
