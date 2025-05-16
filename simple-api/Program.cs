@@ -15,7 +15,7 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowCodespace",
         policy => policy
-            .WithOrigins("https://cuddly-space-spoon-4wjwgwgpgjxcjqvj-4200.app.github.dev")
+            .WithOrigins(builder.Configuration.GetSection("CorsOrigins:AllowedOrigins").Get<string[]>() ?? Array.Empty<string>())
             .AllowAnyMethod()
             .AllowAnyHeader());
 });

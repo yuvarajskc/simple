@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { environment } from '../environments/environment';
 
 @Component({
   selector: 'app-root',
@@ -12,12 +12,12 @@ import { BrowserModule } from '@angular/platform-browser';
 })
 export class AppComponent {
   title = 'simple-angular';
-    message = '';
+  message = '';
 
   constructor(private http: HttpClient) {}
 
   ngOnInit(): void {
-    this.http.get<any>('https://cuddly-space-spoon-4wjwgwgpgjxcjqvj-5044.app.github.dev/api/hello')
+    this.http.get<any>(`${environment.apiUrl}/hello`)
       .subscribe({
         next: res => this.message = res.message,
         error: err => console.error('API Error:', err)
